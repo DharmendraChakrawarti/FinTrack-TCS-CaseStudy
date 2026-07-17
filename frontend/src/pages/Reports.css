@@ -1,0 +1,176 @@
+/* ============================================
+   Reports & Export Page
+   ============================================ */
+.reports-page {
+  max-width: 840px;
+}
+
+.reports-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.report-section {
+  padding: 32px;
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 22px;
+  position: relative;
+  padding-left: 14px;
+}
+
+/* Accent dot on section title */
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 16px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+}
+
+/* Quick Preset Buttons */
+.preset-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.preset-buttons .btn-sm {
+  font-size: 0.76rem;
+  padding: 7px 16px;
+  letter-spacing: 0.2px;
+}
+
+.preset-buttons .btn-sm:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.date-range-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ============================================
+   Export Cards
+   ============================================ */
+.export-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.export-card {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 30px;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.export-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Icon container */
+.export-card__icon {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  transition: transform var(--transition-normal);
+}
+
+.export-card:hover .export-card__icon {
+  transform: scale(1.08);
+}
+
+.csv-icon {
+  background: rgba(0, 230, 118, 0.08);
+  color: var(--color-income);
+  border: 1px solid rgba(0, 230, 118, 0.15);
+}
+
+.pdf-icon {
+  background: rgba(255, 82, 82, 0.08);
+  color: var(--color-expense);
+  border: 1px solid rgba(255, 82, 82, 0.15);
+}
+
+.export-card__info {
+  flex: 1;
+}
+
+.export-card__info h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.export-card__info p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .export-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .export-card .btn {
+    width: 100%;
+  }
+
+  .date-range-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .report-section {
+    padding: 24px;
+  }
+
+  .preset-buttons {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .report-section {
+    padding: 20px;
+  }
+
+  .export-card {
+    padding: 20px;
+  }
+
+  .export-card__icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+
+  .export-card__info h4 {
+    font-size: 0.95rem;
+  }
+}

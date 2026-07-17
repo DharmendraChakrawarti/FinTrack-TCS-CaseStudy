@@ -1,0 +1,55 @@
+/* ============================================
+   Loader — Premium Spinner
+   ============================================ */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  gap: 24px;
+}
+
+.loader-spinner {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.loader-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2.5px solid transparent;
+  animation: spin 1.2s linear infinite;
+}
+
+.loader-ring:nth-child(1) {
+  border-top-color: var(--accent-primary);
+  animation-duration: 1s;
+  filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.3));
+}
+
+.loader-ring:nth-child(2) {
+  inset: 6px;
+  border-right-color: var(--accent-secondary);
+  animation-duration: 1.5s;
+  animation-direction: reverse;
+  filter: drop-shadow(0 0 8px rgba(122, 92, 250, 0.3));
+}
+
+.loader-ring:nth-child(3) {
+  inset: 12px;
+  border-bottom-color: var(--color-income);
+  animation-duration: 2s;
+  filter: drop-shadow(0 0 8px rgba(0, 230, 118, 0.3));
+}
+
+.loader-text {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: pulse 1.5s ease infinite;
+}

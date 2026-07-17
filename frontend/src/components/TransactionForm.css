@@ -1,0 +1,121 @@
+/* ============================================
+   Transaction Form Modal
+   ============================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+  padding: 16px;
+}
+
+.transaction-form {
+  width: 100%;
+  max-width: 520px;
+  padding: 36px;
+  animation: fadeInUp 0.3s ease;
+  position: relative;
+}
+
+/* Gradient top border on modal */
+.transaction-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.transaction-form__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.transaction-form__header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Income/Expense Toggle */
+.type-toggle {
+  display: flex;
+  gap: 6px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.type-btn {
+  flex: 1;
+  padding: 11px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.type-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.type-btn.active.expense {
+  background: var(--color-expense-bg);
+  color: var(--color-expense);
+  border-color: rgba(255, 82, 82, 0.2);
+  box-shadow: 0 0 16px rgba(255, 82, 82, 0.08);
+}
+
+.type-btn.active.income {
+  background: var(--color-income-bg);
+  color: var(--color-income);
+  border-color: rgba(0, 230, 118, 0.2);
+  box-shadow: 0 0 16px rgba(0, 230, 118, 0.08);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .transaction-form {
+    padding: 28px;
+  }
+}

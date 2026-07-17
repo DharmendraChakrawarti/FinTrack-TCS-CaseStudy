@@ -1,0 +1,162 @@
+/* ============================================
+   Dashboard Page
+   ============================================ */
+.dashboard-page {
+  max-width: 1200px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+/* Custom Recharts Tooltip */
+.custom-tooltip {
+  background: rgba(10, 10, 26, 0.96) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  padding: 14px 18px !important;
+  font-size: 0.82rem !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.tooltip-label {
+  color: var(--text-secondary) !important;
+  margin-bottom: 6px !important;
+  font-weight: 600 !important;
+  font-size: 0.78rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.no-data {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 40px 0;
+  font-weight: 500;
+}
+
+/* ============================================
+   Recent Transactions List
+   ============================================ */
+.recent-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.recent-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  transition: all var(--transition-fast);
+  border-radius: 8px;
+}
+
+.recent-item:hover {
+  background: rgba(255, 255, 255, 0.02);
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.recent-item:last-child {
+  border-bottom: none;
+}
+
+.recent-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.recent-item__category {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.recent-item__desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.recent-item__amount {
+  font-size: 0.92rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.3px;
+}
+
+.error-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: var(--color-expense);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .charts-grid {
+    gap: 16px;
+  }
+
+  .recent-item {
+    padding: 11px 2px;
+  }
+
+  .recent-item__category {
+    font-size: 0.82rem;
+  }
+
+  .recent-item__amount {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .charts-grid {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .custom-tooltip {
+    padding: 10px 14px !important;
+    font-size: 0.76rem !important;
+  }
+}
+

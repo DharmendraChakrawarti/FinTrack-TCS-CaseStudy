@@ -1,0 +1,130 @@
+/* ============================================
+   StatCard — Glowing Metric Cards
+   ============================================ */
+.stat-card {
+  position: relative;
+  padding: 26px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  animation: fadeInUp 0.5s ease forwards;
+  transition: all var(--transition-normal);
+  opacity: 0;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.05s; }
+.stat-card:nth-child(2) { animation-delay: 0.1s; }
+.stat-card:nth-child(3) { animation-delay: 0.15s; }
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Color-coded left border accents */
+.stat-card--income {
+  border-left: 3px solid var(--color-income);
+}
+.stat-card--income:hover {
+  box-shadow: var(--shadow-md), 0 0 30px rgba(0, 230, 118, 0.08);
+}
+
+.stat-card--expense {
+  border-left: 3px solid var(--color-expense);
+}
+.stat-card--expense:hover {
+  box-shadow: var(--shadow-md), 0 0 30px rgba(255, 82, 82, 0.08);
+}
+
+.stat-card--balance {
+  border-left: 3px solid var(--accent-primary);
+}
+.stat-card--balance:hover {
+  box-shadow: var(--shadow-md), 0 0 30px rgba(0, 210, 255, 0.08);
+}
+
+.stat-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.stat-card__icon {
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  transition: transform var(--transition-normal);
+}
+
+.stat-card:hover .stat-card__icon {
+  transform: scale(1.15);
+}
+
+.stat-card--income .stat-card__icon { color: var(--color-income); }
+.stat-card--expense .stat-card__icon { color: var(--color-expense); }
+.stat-card--balance .stat-card__icon { color: var(--accent-primary); }
+
+.stat-card__title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.stat-card__value {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  animation: countUp 0.6s ease forwards;
+}
+
+.stat-card__prefix {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.stat-card__number {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Ambient glow orb in background */
+.stat-card__glow {
+  position: absolute;
+  top: -60%;
+  right: -50%;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  opacity: 0.03;
+  transition: opacity var(--transition-slow);
+  pointer-events: none;
+}
+
+.stat-card--income .stat-card__glow {
+  background: radial-gradient(circle, var(--color-income), transparent 70%);
+}
+.stat-card--expense .stat-card__glow {
+  background: radial-gradient(circle, var(--color-expense), transparent 70%);
+}
+.stat-card--balance .stat-card__glow {
+  background: radial-gradient(circle, var(--accent-primary), transparent 70%);
+}
+
+.stat-card:hover .stat-card__glow {
+  opacity: 0.08;
+}
+
+@media (max-width: 768px) {
+  .stat-card__number {
+    font-size: 1.5rem;
+  }
+}
