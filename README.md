@@ -210,14 +210,20 @@ Navigate to **http://localhost:3000** in your browser.
 
 ## 🗄️ Database
 
-This project uses **H2 in-memory database** for zero-setup development.
+The application supports dual database environments:
 
-- **H2 Console:** http://localhost:8080/h2-console
+### 1. Local Development (H2 In-Memory)
+- **H2 Console:** `http://localhost:8080/h2-console`
 - **JDBC URL:** `jdbc:h2:mem:financedb`
 - **Username:** `sa`
 - **Password:** *(empty)*
+- *Data resets on every server restart. Seed data from `data.sql` is autoloaded.*
 
-> ⚠️ Data resets on every server restart. Seed data from `data.sql` is auto-loaded on startup.
+### 2. Production (PostgreSQL)
+- **Service:** Neon PostgreSQL (or any standard Postgres instance)
+- **Configuration:** Set variables `DATABASE_URL`, `DATABASE_USERNAME`, and `DATABASE_PASSWORD` in the production environment.
+- *Data is persistent. Production seed data is loaded via `data-prod.sql`.*
+
 
 ### Default Categories
 
@@ -233,6 +239,17 @@ This project uses **H2 in-memory database** for zero-setup development.
 | Education | |
 | Travel | |
 | Subscriptions | |
+
+---
+
+## 🚀 Production Deployment
+
+The project is fully configured for deployment on:
+- **Frontend**: [Vercel](https://vercel.com) (React static build)
+- **Backend API**: [Render](https://render.com) (Docker containerized environment)
+- **Database**: [Neon](https://neon.tech) (Serverless PostgreSQL)
+
+For detailed step-by-step deployment instructions, active URLs, and database environment configuration details, please refer to [memory.md](file:///c:/Users/dharm/Desktop/Personal%20Finance%20Tracker/memory.md).
 
 ---
 

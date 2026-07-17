@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# Getting Started with FinTrack Frontend (React)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This frontend project is built with React 19 and bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## 🚀 Deployed Environment
+- **Active Deployment:** [https://fin-track-tcs-case-study.vercel.app](https://fin-track-tcs-case-study.vercel.app)
+- **Primary hosting:** Vercel (static React build)
+
+## ⚙️ Environment Variables
+For production builds, configure the following environment variable on Vercel:
+- `REACT_APP_API_URL` (Points to the backend API URL, e.g. `https://fintrack-api-bl9v.onrender.com/api`)
+
+If not provided, the app will fall back to `http://localhost:8080/api` for local development.
+
+---
 
 ## Available Scripts
 

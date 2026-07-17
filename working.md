@@ -390,9 +390,9 @@ User selects date range → clicks "Download PDF"
 
 ---
 
-## 🗄️ Database Schema
+## 🗄️ Database Schema & Configuration
 
-The H2 in-memory database uses these tables:
+The database schema maps users, categories, transactions, and budgets:
 
 ```sql
 ┌──────────────────┐     ┌──────────────────┐
@@ -419,15 +419,16 @@ The H2 in-memory database uses these tables:
 └──────────────────┘
 ```
 
-### Seed Data (data.sql)
+### 1. Local Development (H2 In-Memory)
+- **Properties**: Managed via `application.properties`.
+- **Seed Data**: `data.sql` runs on startup using H2-specific syntax (e.g. `DATEADD`, `FORMATDATETIME`).
+- **Persistence**: Temporary. Data resets on server restart.
 
-On every server start, `data.sql` runs automatically:
-- Creates a demo user (`demo` / `demo123`)
-- Inserts 14 default categories (10 expense + 4 income)
-- Inserts sample transactions spanning 6 months
-- Inserts sample budgets for the current month
-
-> ⚠️ Since H2 is in-memory, **all data resets** when the server restarts.
+### 2. Production (PostgreSQL on Neon)
+- **Properties**: Activated via the `prod` profile (`application-prod.properties`).
+- **Seed Data**: `data-prod.sql` runs using standard SQL and PostgreSQL syntax (e.g. `INTERVAL`, `TO_CHAR`).
+- **Safety**: Uses `spring.sql.init.continue-on-error=true` to safely run the seed queries without crashing when records already exist.
+- **Persistence**: Fully persistent cloud database.
 
 ---
 
